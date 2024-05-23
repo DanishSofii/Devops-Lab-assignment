@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-html-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-html-site
+  template:
+    metadata:
+      labels:
+        app: static-html-site
+    spec:
+      containers:
+      - name: devopsstatic
+        image: danishsofii/devopsstatic:v1
+        ports:
+        - containerPort: 80
